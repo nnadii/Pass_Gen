@@ -1,6 +1,5 @@
 import string as str
 import secrets
-import random  # this is the module used to generate random numbers on your given range
 
 
 class PasswordGenerator:
@@ -15,6 +14,7 @@ class PasswordGenerator:
         ]
         sequence = ""
         for x in range(len(conditions)):
+
             # x variable here is the index
             if conditions[x]:
                 sequence += possible_characters[x]
@@ -44,12 +44,12 @@ class Interface:
         try:
             # to check if the specified key exists in the dicitonary
             cls.has_characters[change]
-        except Exception as err:
-            print(f"Invalid \nan Exception: {err}")
-        else:
+
             # automaticly changes to the opposite value already there
             cls.has_characters[change] = not cls.has_characters[change]
             print(f"{change} is now set to {cls.has_characters[change]}")
+        except Exception as err:
+            print(f"Invalid \nan Exception: {err}")
 
     @classmethod
     def show_has_characters(cls):
@@ -73,11 +73,11 @@ class Run:
         user_input = input(": ")
         try:
             int(user_input)
-        except:
-            Interface.change_has_characters(user_input)
-        else:
+
             # exexcute code when there is no error
             Interface().generate_password(int(user_input))
+        except:
+            Interface.change_has_characters(user_input)
         finally:
             print("\n\n")
 
